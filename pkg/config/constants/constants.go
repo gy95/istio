@@ -24,13 +24,13 @@ const (
 	// CertChainFilename is mTLS chain file
 	CertChainFilename = "cert-chain.pem"
 
-	// DefaultServerCertChain is the default path to the mTLS chain file
+	// DefaultCertChain is the default path to the mTLS chain file
 	DefaultCertChain = AuthCertsPath + CertChainFilename
 
 	// KeyFilename is mTLS private key
 	KeyFilename = "key.pem"
 
-	// DefaultServerKey is the default path to the mTLS private key file
+	// DefaultKey is the default path to the mTLS private key file
 	DefaultKey = AuthCertsPath + KeyFilename
 
 	// RootCertFilename is mTLS root cert

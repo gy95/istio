@@ -44,7 +44,7 @@ var crdKubeResource = collection.Builder{
 }.MustBuild()
 
 // Source is an implementation of processing.KubeSource
-type Source struct { // nolint:maligned
+type Source struct {
 	mu      sync.RWMutex
 	options Options
 
