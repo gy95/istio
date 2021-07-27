@@ -44,12 +44,16 @@ func (fx *FakeXdsUpdater) ConfigUpdate(req *model.PushRequest) {
 	if req != nil && len(req.ConfigsUpdated) > 0 {
 		for key := range req.ConfigsUpdated {
 			id = key.Name
+			select {
+			case fx.Events <- FakeXdsEvent{Type: "xds", ID: id}:
+			default:
+			}
 		}
 	}
-	select {
-	case fx.Events <- FakeXdsEvent{Type: "xds", ID: id}:
-	default:
-	}
+	//select {
+	//case fx.Events <- FakeXdsEvent{Type: "xds", ID: id}:
+	//default:
+	//}
 }
 
 func (fx *FakeXdsUpdater) ProxyUpdate(_ cluster.ID, _ string) {
